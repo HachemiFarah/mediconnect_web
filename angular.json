@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "mediconnect": {
+      "projectType": "application",
+      "root": "projects/mediconnect",
+      "sourceRoot": "projects/mediconnect/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/mediconnect",
+            "index": "projects/mediconnect/src/index.html",
+            "main": "projects/mediconnect/src/main.ts",
+            "polyfills": "projects/mediconnect/src/polyfills.ts",
+            "tsConfig": "projects/mediconnect/tsconfig.app.json",
+            "assets": ["projects/mediconnect/src/favicon.ico", "projects/mediconnect/src/assets"],
+            "styles": ["projects/mediconnect/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/mediconnect/src/environments/environment.ts",
+                  "with": "projects/mediconnect/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "mediconnect:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mediconnect:build:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "mediconnect"
+}
